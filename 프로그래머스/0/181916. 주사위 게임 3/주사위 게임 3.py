@@ -33,7 +33,7 @@ def solution(a, b, c, d):
     elif d==c and a!=b:
         answer=a*b
         
-    elif a != b != c != d:
+    else:
         answer=min(a,b,c,d)
     
     return answer
