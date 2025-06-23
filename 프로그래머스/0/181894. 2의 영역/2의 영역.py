@@ -1,18 +1,15 @@
 def solution(arr):
-    first = -1
-    last = -1
     answer = []
+    a=[]
+    
     for i in range(len(arr)):
-        if arr[i] == 2:
-            if first == -1:
-                first = i
-            last = i
-
-    if first == -1:
-        return [-1]
-
-    for j in range(first, last + 1):
-        answer.append(arr[j])
-
-    return answer
-
+        if arr[i]==2:
+            answer.append(i)
+    
+    if not answer:
+            return [-1]
+    else:
+        for j in range(answer[0],answer[-1]+1):
+            a.append(arr[j])
+        
+    return a
