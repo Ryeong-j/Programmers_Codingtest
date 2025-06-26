@@ -4,6 +4,5 @@ def solution(myString):
     for i in myString.split('x'):
         if i != '':
             answer.append(i)
-            answer.sort()
-        
-    return answer
+            
+    return sorted(answer)
