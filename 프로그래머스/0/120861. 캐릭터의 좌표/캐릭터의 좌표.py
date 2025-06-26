@@ -13,16 +13,16 @@ def solution(keyinput, board):
             answer[0] += 1
             
 
-    if answer[0]<0:
-        answer[0]=max(answer[0],-a)
-    else:
-        answer[0]=min(answer[0],a)
+#     if answer[0]<0:
+#         answer[0]=max(answer[0],-a)
+#     else:
+#         answer[0]=min(answer[0],a)
             
     
-    if answer[1]<0:
-        answer[1]=max(answer[1],-b)
-    else:
-        answer[1]=min(answer[1],b)
+#     if answer[1]<0:
+#         answer[1]=max(answer[1],-b)
+#     else:
+#         answer[1]=min(answer[1],b)
                 
     return answer
 
