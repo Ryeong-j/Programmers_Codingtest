@@ -8,5 +8,5 @@ def solution(n):
         a=b
         b=r
 
-    return n*6//a//6
+    return n//a
     
