@@ -1,15 +1,25 @@
 def solution(array):
-    counts = {}
-    for num in array:
-        if num in counts:
-            counts[num] += 1
+    a={}
+    
+    for i in array:
+        if i in a:
+            a[i]+=1
         else:
-            counts[num] = 1
-
-    max_count = max(counts.values())
-    modes = [num for num, cnt in counts.items() if cnt == max_count]
-
-    if len(modes) > 1:
+            a[i]=1
+            
+    c = 0
+    m=max(a.values())
+    
+    for i in a.values():
+        if i == m:
+            c+=1
+        
+    if c > 1:
         return -1
     else:
-        return modes[0]
+        for i in a:
+            if a[i]==m:
+                return i
+
+
+    
