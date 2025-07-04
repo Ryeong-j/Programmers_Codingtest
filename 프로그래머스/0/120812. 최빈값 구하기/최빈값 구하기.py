@@ -20,6 +20,8 @@ def solution(array):
         for i in a:
             if a[i]==m:
                 return i
-
+    # a={1:3,2:2,3:6}
+    # for i in enumerate(a.values()):
+    #     print(i)
 
     
