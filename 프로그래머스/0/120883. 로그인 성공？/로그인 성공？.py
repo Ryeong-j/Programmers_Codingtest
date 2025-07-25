@@ -1,11 +1,17 @@
 def solution(id_pw, db):
-    user_id, user_pw = id_pw
+    answer = ''
     
-    for db_id, db_pw in db:
-        if db_id == user_id:
-            if db_pw == user_pw:
-                return "login"
-            else:
-                return "wrong pw"
+    if id_pw[1] not in db:
+        answer= 'fail'
     
-    return "fail"
+    for i,j in db:
+        if id_pw[0] == i and id_pw[1] == j:
+            answer = 'login'
+            break
+        elif id_pw[0] == i:
+            answer = 'wrong pw'
+        # elif id_pw[1] == j:
+        #     answer= 'fail'
+      
+
+    return answer
