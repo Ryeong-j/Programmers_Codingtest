@@ -10,3 +10,4 @@ def solution(s):
             yy+=1
             
     return pp==yy
+#더 간단한 방법으로 해보기
