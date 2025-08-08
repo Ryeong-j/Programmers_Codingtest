@@ -1,30 +1,91 @@
 def solution(board):
     n = len(board)
-    danger = [[0]*n for _ in range(n)]
-    
-    # 8방향 좌표 (상, 하, 좌, 우, 대각선)
-    dx = [-1, -1, -1, 0, 0, 1, 1, 1]
-    dy = [-1, 0, 1, -1, 1, -1, 0, 1]
+    m = len(board[0])
 
+    mark = set()
     for i in range(n):
-        for j in range(n):
+        for j in range(m):
             if board[i][j] == 1:
-                danger[i][j] = 1 # 지뢰가 있는 칸
-                # 주변 8방향을 danger로 설정
-                for k in range(8):
-                    nx = i + dx[k]
-                    ny = j + dy[k]
-                    if 0 <= nx < n and 0 <= ny < n:
-                        danger[nx][ny] = 1
-                        
-    # 안전한 지역(0) 세기 
-    safe_count = 0
-    for i in range(n):
-        for j in range(n):
-            if danger[i][j] == 0:
-                safe_count += 1
-    return safe_count
+                for dx in [-1, 0, 1]:
+                    for dy in [-1, 0, 1]:
+                        ni, nj = i + dx, j + dy
+                        if 0 <= ni < n and 0 <= nj < m:
+                            mark.add((ni, nj))
 
+    cnt = 0
+    for i in range(n):
+        for j in range(m):
+            if (i,j) not in mark:
+                cnt += 1
+    return cnt
+
+
+# def solution(board):
+#     a = 0
+#     b = []
+    
+#     for i in range(len(board)):
+#         for j in range(len(board[i])):
+#             if board[i][j] == 1:
+#                 b.append([i, j])
+                
+#     for i, j in b:
+#         if i == 0 and j == 0:
+#             board[i][j+1] = 1
+#             board[i-1][j+1] = 1
+#             board[i-1][j] = 1
+#         elif i == 0 and j ==len(board)-1:
+#             board[i-1][j-1] = 1
+#             board[i-1][j] = 1
+#             board[i][j-1] = 1
+#         elif i == len(board)-1 and j == 0:
+#             board[i][j+1] = 1
+#             board[i-1][j] = 1
+#             board[i-1][j+1] = 1
+#         elif i == len(board)-1 and j == len(board)-1:
+#             board[i-1][j-1] = 1
+#             board[i-1][j] = 1
+#             board[i][j-1] = 1
+#         elif i == 0:
+#             board[i][j-1] = 1
+#             board[i][j+1] = 1
+#             board[i+1][j-1] = 1
+#             board[i+1][j] = 1
+#             board[i+1][j+1] = 1
+#         elif j == 0:
+#             board[i-1][j] = 1
+#             board[i-1][j+1] = 1
+#             board[i+1][j] = 1
+#             board[i+1][j+1] = 1
+#             board[i][j+1] = 1
+#         elif i == len(board)-1:
+#             board[i-1][j-1] = 1
+#             board[i-1][j] = 1
+#             board[i-1][j+1] = 1
+#             board[i][j-1] = 1
+#             board[i][j+1] = 1
+#         elif j == len(board)-1:
+#             board[i-1][j-1] = 1
+#             board[i-1][j] = 1
+#             board[i][j-1] = 1
+#             board[i+1][j] = 1
+#             board[i+1][j-1] = 1
+#         else:
+#             board[i-1][j-1] = 1
+#             board[i-1][j] = 1
+#             board[i-1][j+1] = 1
+#             board[i][j-1] = 1
+#             board[i][j+1] = 1
+#             board[i+1][j-1] = 1
+#             board[i+1][j] = 1
+#             board[i+1][j+1] = 1
+    
+#     cc=0
+#     for i in range(len(board)):
+#         for j in range(len(board[i])):
+#             if board[i][j] == 0:
+#                 cc+=1
+#     return cc
 
 # def solution(board):
 #     answer = 0
