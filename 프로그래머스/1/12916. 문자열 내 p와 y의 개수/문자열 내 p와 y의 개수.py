@@ -1,13 +1,14 @@
 def solution(s):
     pp=0
     yy=0
+    s=s.lower()
     
     for i in s:
-        if i == 'p' or i=='P':
+        if i == 'p':
             pp+=1
-        elif i=='y' or i=='Y':
+        elif i=='y':
             yy+=1
-      
+            
     if pp==yy:
         return True
     else:
