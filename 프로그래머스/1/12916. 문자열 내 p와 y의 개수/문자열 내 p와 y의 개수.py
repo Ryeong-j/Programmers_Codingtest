@@ -9,7 +9,4 @@ def solution(s):
         elif i=='y':
             yy+=1
             
-    if pp==yy:
-        return True
-    else:
-        return False
+    return pp==yy
